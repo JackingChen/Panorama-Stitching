@@ -14,16 +14,16 @@
 clc; close all; clc;
 
 %% Load a list of images (Change file name if you want to use other images)
-imgList = dir('./data/yosemite*.jpg');
+imgList = dir('../data/BIIC*.jpg');
 
-saveFileName = 'yosemite.jpg';
+saveFileName = 'BIIC.jpg';
 
 %% Add path
 addpath('KeypointDetect');
 
 IMAGES = cell(1, length(imgList));
 for i = 1 : length(imgList),
-    IMAGES{i} = imread(['./data/' imgList(i).name]);
+    IMAGES{i} = imread(['../data/' imgList(i).name]);
     %% Resize to make memory efficient
     if max(size(IMAGES{i})) > 1000 || length(imgList) > 10,
         IMAGES{i} = imresize(IMAGES{i}, 0.6);

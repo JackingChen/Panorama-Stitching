@@ -33,6 +33,22 @@ function match = SIFTSimpleMatcher(descriptor1, descriptor2, thresh)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+for i =  1:length(descriptor1(:,1))
+    input_rowd1=descriptor1(i,:);
+    input_mat1=repmat(input_rowd1,length(descriptor2(:,1)),1);
+    diff_mat=input_mat1-descriptor2;
+    diff_mat=diff_mat.^2;
+    y=sqrt(sum(diff_mat,2));
+    sorty=sort(y);
+    second_minval=sorty(2);        
+    [min_value min_index]=min(y);
+    if min_value<second_minval*thresh;
+        match=[match;[i,min_index]];
+    else
+        continue;
+    end
+end
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %

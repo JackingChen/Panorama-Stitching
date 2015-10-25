@@ -98,7 +98,14 @@ function dists = ComputeError(H, pt1, pt2, match)
     % pt1(match(2,1),:), etc. (You may use 'for' loops if this is too
     % confusing, but understanding it will make your code simple and fast.)
     dists = zeros(size(match,1),1);
-
+    pt1_match=pt1(match(:,1),:);
+    pt1_match=[pt1_match ones(length(pt1_match(:,1)),1)]';
+    pt2_match=pt2(match(:,2),:);
+    pt2_match=[pt2_match ones(length(pt2_match(:,1)),1)]';
+    diff_pt=H*pt1_match-pt2_match;%******* need change the form of pt from [x1 x2] to [x1 x2 1]
+    dists=sqrt(sum(diff_pt.^2,1))';
+    
+    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
 %                                 END YOUR CODE                                %

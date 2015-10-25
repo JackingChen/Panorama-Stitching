@@ -7,6 +7,8 @@ load('../checkpoint/Match_input.mat');
 %% Call my implementation of SIFTSimpleMatcher.m
 M = SIFTSimpleMatcher( input_d1, input_d2 );
 
+
+
 %% Load data and check solution (You should not change this part.)
 load('../checkpoint/Match_ref.mat');
 fprintf('%s\n', 'Your error with the reference solution...');

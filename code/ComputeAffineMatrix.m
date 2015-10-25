@@ -30,7 +30,6 @@ function H = ComputeAffineMatrix( Pt1, Pt2 )
     % above, to yield P1'*H'=P2'. Then MATLAB can solve for H', and we can
     % transpose the result to produce H.
     
-    H = [];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
 %                                YOUR CODE HERE:                               %
@@ -38,7 +37,8 @@ function H = ComputeAffineMatrix( Pt1, Pt2 )
 %                     above, then convert it to the final H                    %
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
+    H=P1'\P2';
+    H=H';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       END OF YOUR CODE                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
